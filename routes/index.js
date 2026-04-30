@@ -9,8 +9,8 @@ router.get("/about", (req, res) => {
   res.render("about", { title: "About" });
 });
 
-router.get("/contact", (req, res) => {
-  res.render("contact", { title: "Contact" });
+router.get("/products", (req, res) => {
+  res.render("products", { title: "Products" });
 });
 
 export default router;
