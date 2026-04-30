@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import routes from "./routes/index.js";
 
 dotenv.config();
 
@@ -12,19 +13,4 @@ app.set("view engine", "ejs");
 // static files
 app.use(express.static("public"));
 
-// routes
-app.get("/", (req, res) => {
-  res.render("home", { title: "Home" });
-});
-
-app.get("/about", (req, res) => {
-  res.render("about", { title: "About" });
-});
-
-app.get("/contact", (req, res) => {
-  res.render("contact", { title: "Contact" });
-});
-
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+app.use("/", routes);
