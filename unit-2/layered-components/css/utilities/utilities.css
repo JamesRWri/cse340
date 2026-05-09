@@ -2,4 +2,8 @@
    These live in the last layer so they override components
    by layer order without needing !important. */
 
-/* TODO: Add any utility classes you find useful */
+@layer utilities {
+    .text-center { text-align: center; }
+    .mt-lg { margin-top: var(--space-lg); }
+    .font-accent { color: var(--color-accent); }
+}
