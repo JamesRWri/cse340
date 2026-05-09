@@ -1,6 +1,6 @@
 /* Base element styles: body, headings, links, lists.
    No classes here, only bare HTML element selectors.
-   Reference tokens with var(). */
+   Reference tokens with var(). */ 
 
 @layer base {
     body {
