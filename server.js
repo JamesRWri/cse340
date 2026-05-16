@@ -1,16 +1,12 @@
 import express from "express";
-import dotenv from "dotenv";
-import routes from "./routes/index.js";
-
-dotenv.config();
+import routes from "./backend/routes/index.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// set view engine
+app.set("views", "./backend/views"); 
 app.set("view engine", "ejs");
 
-// static files
 app.use(express.static("public"));
 
 app.use("/", routes);
