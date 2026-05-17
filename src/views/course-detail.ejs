@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="<%= bodyClass %>">
+    <header>
+        <%- include("partials/header") %>
+        <%- greeting %>
+    </header>
+    <main>
+        <h1><%= course.id %>: <%= course.title %></h1>
+        <p><strong>Department:</strong> <%= course.department %> | <strong>Credits:</strong> <%= course.credits %></p>
+        <p><%= course.description %></p>
+        
+        <hr>
+        
+        <h3>Class Sections</h3>
+        <p>Sort by: 
+            <a href="/catalog/<%= course.id %>?sort=time" <%= currentSort === 'time' ? 'style="font-weight:bold;"' : '' %>>Time</a> | 
+            <a href="/catalog/<%= course.id %>?sort=professor" <%= currentSort === 'professor' ? 'style="font-weight:bold;"' : '' %>>Professor</a> | 
+            <a href="/catalog/<%= course.id %>?sort=room" <%= currentSort === 'room' ? 'style="font-weight:bold;"' : '' %>>Room</a>
+        </p>
+        
+        <table border="1" cellpadding="5" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Room</th>
+                    <th>Professor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% course.sections.forEach(section => { %>
+                    <tr>
+                        <td><%= section.time %></td>
+                        <td><%= section.room %></td>
+                        <td><%= section.professor %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+        
+        <p><a href="/catalog">&larr; Back to Full Catalog</a></p>
+    </main>
+    <%- include("partials/footer") %>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="<%= bodyClass %>">
+    <header>
+        <%- include("partials/header") %>
+        <%- greeting %>
+    </header>
+    <main>
+        <h1><%= title %></h1>
+        <p>This page tests custom route-specific middleware headers. Check your Network tab in DevTools to view <code>X-Demo-Page</code> and <code>X-Middleware-Demo</code>!</p>
+        
+        <h3>Inspecting Global App Properties passed via Middleware:</h3>
+        <ul>
+            <li><strong>Current Year:</strong> <%= currentYear %></li>
+            <li><strong>Current App Environment:</strong> <%= NODE_ENV %></li>
+            <li><strong>Randomly Assigned Theme Class:</strong> <code><%= bodyClass %></code></li>
+        </ul>
+    </main>
+    <%- include("partials/footer") %>
+</body>
+</html>

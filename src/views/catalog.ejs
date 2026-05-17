@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="<%= bodyClass %>">
+    <header>
+        <%- include("partials/header") %>
+        <%- greeting %>
+    </header>
+    <main>
+        <h1><%= title %></h1>
+        <p>Select a course below to view available sections and details:</p>
+        <ul>
+            <% Object.values(courses).forEach(course => { %>
+                <li>
+                    <strong><a href="/catalog/<%= course.id %>"><%= course.id %>: <%= course.title %></a></strong> 
+                    (<%= course.credits %> Credits) — <em><%= course.department %></em>
+                </li>
+            <% }) %>
+        </ul>
+    </main>
+    <%- include("partials/footer") %>
+</body>
+</html>
