@@ -50,7 +50,7 @@ app.use((err, req, res, next) => {
         }
     }
 });
-/*
+
 if (NODE_ENV.includes('dev')) {
     const ws = await import('ws');
     try {
@@ -66,7 +66,7 @@ if (NODE_ENV.includes('dev')) {
         console.error('Failed to start WebSocket server:', error);
     }
 }
-*/
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://127.0.0.1:${PORT}`);
 });
